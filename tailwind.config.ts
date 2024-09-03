@@ -13,8 +13,12 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        newAmsterdam: ["'New Amsterdam'", 'sans-serif'], // Corretto: avvolgi il nome del font tra virgolette
+      },
     },
   },
   plugins: [],
 };
+
 export default config;
