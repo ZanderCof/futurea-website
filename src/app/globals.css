@@ -2,51 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-color: #141413; /* Colore giallo di bg-yellow-400 */
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-color: #facd15; /* Colore giallo di bg-yellow-400 */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-color: #ffc300; /* Colore scuro per dark mode */
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background-color: var(--background-color); /* Imposta lo sfondo */
-  font-family: 'New Amsterdam', sans-serif; /* Applicare il font */
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background-color: var(--background-color); /* Imposta lo sfondo */
-  font-family: 'New Amsterdam', sans-serif; /* Applicare il font */
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* IMPORT FONT */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jacquarda+Bastarda+9&display=swap');
+.navbar{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }

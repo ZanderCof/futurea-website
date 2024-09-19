@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen py-12 bg-white">
+    <div className="min-h-screen py-12 bg-yellow-500">
       <div className="max-w-5xl mx-auto bg-white text-black rounded-lg shadow-xl p-8 lg:flex lg:items-center lg:space-x-8">
         {/* Text Section */}
         <div className="lg:flex-1 lg:pr-8 mb-6 lg:mb-0">

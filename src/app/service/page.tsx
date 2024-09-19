@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Service = () => {
   return (
-    <div className="min-h-screen py-12 bg-gray-100">
+    <div className="min-h-screen py-12 ">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -18,7 +18,7 @@ const Service = () => {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Card 1 */}
-          <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-yellow-400 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
             <div className="overflow-hidden rounded-t-xl">
               <Image
                 src="/Image/web-card.jpg"
@@ -61,7 +61,7 @@ const Service = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-yellow-400 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
             <div className="overflow-hidden rounded-t-xl">
               <Image
                 src="/Image/emenu-card.jpg"
@@ -103,7 +103,7 @@ const Service = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-yellow-400 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
             <div className="overflow-hidden rounded-t-xl">
               <Image
                 src="/Image/gestional-card.jpg"

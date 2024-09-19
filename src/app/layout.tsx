@@ -20,10 +20,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it">
-      <body className={inter.className}>
+      <body className={`${inter.className} flex flex-col min-h-screen w-full`}>
         {/* NAVBAR */}
         <Navbar />
-        {children}
+        
+        {/* MAIN CONTENT */}
+        <main className="flex-grow w-full">
+          {children}
+        </main>
+
         {/* FOOTER */}
         <Footer />
       </body>

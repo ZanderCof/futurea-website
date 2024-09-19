@@ -1,9 +1,40 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScrollTop > lastScrollTop) {
+        // Scrolling down
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+      setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop); // For Mobile or negative scrolling
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollTop]);
+
   return (
-    <nav className="bg-yellow-400 shadow-lg">
+    <nav className={`navbar bg-transparent sticky top-0 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between p-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3">
@@ -17,11 +48,9 @@ export default function Navbar() {
 
         {/* Mobile menu button */}
         <button
-          data-collapse-toggle="navbar-default"
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-black rounded-lg md:hidden hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-black transition duration-300"
-          aria-controls="navbar-default"
-          aria-expanded="false"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-black rounded-lg md:hidden hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-black transition duration-300"
+          onClick={toggleMenu}
         >
           <span className="sr-only">Apri menu</span>
           <svg
@@ -42,12 +71,15 @@ export default function Navbar() {
         </button>
 
         {/* Menu links */}
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 mt-4 md:mt-0 border border-black md:border-0 rounded-lg bg-yellow-400 md:bg-transparent">
+        <div
+          className={`${isOpen ? 'block' : 'hidden'} w-full md:flex md:w-auto md:space-x-8`}
+        >
+          <ul className="flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 mt-4 md:mt-0">
             <li>
               <Link
                 href="/about"
-                className="block py-2 px-4 text-black rounded transition-colors duration-300 border-b-2 border-transparent hover:border-black hover:bg-yellow-500 md:hover:bg-transparent"
+                className="block py-2 px-4 text-black transition-all duration-300 hover:rounded-full w-40 text-center hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none focus:ring   hover:shadow-lg hover:text-white transform hover:scale-105 hover:rotate-1"
+                onClick={closeMenu}
               >
                 Chi Siamo
               </Link>
@@ -55,17 +87,20 @@ export default function Navbar() {
             <li>
               <Link
                 href="/service"
-                className="block py-2 px-4 text-black rounded transition-colors duration-300 border-b-2 border-transparent hover:border-black hover:bg-yellow-500 md:hover:bg-transparent"
+                className="block py-2 px-4 text-black transition-all duration-300 hover:rounded-full w-40 text-center hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none focus:ring   hover:shadow-lg hover:text-white transform hover:scale-105 hover:rotate-1"
+                onClick={closeMenu}
               >
                 Servizi
               </Link>
             </li>
             <li>
               <Link
-                href="#"
-                className=" block py-2 px-4 text-black rounded transition-colors duration-300 border-b-2 border-transparent hover:border-black hover:bg-yellow-500 md:hover:bg-transparent"
+                href="/example"
+                className="block py-2 px-4 text-black transition-all duration-300 hover:rounded-full w-40 text-center hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none focus:ring   hover:shadow-lg hover:text-white transform hover:scale-105 hover:rotate-1"
+
+                onClick={closeMenu}
               >
-                Novità
+                Demo
               </Link>
             </li>
           </ul>
