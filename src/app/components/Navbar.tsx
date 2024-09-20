@@ -78,7 +78,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/about"
-                className="block py-2 px-4 text-black transition-all duration-300 hover:rounded-full w-40 text-center hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none focus:ring   hover:shadow-lg hover:text-white transform hover:scale-105 hover:rotate-1"
+                className="block py-2 px-4 text-black transition-all duration-300 rounded-full w-40 text-center hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none focus:ring   hover:shadow-lg hover:text-white transform hover:scale-105 hover:rotate-1"
                 onClick={closeMenu}
               >
                 Chi Siamo
@@ -87,7 +87,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/service"
-                className="block py-2 px-4 text-black transition-all duration-300 hover:rounded-full w-40 text-center hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none focus:ring   hover:shadow-lg hover:text-white transform hover:scale-105 hover:rotate-1"
+                className="block py-2 px-4 text-black transition-all duration-300 rounded-full w-40 text-center hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none focus:ring   hover:shadow-lg hover:text-white transform hover:scale-105 hover:rotate-1"
                 onClick={closeMenu}
               >
                 Servizi
@@ -96,7 +96,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/example"
-                className="block py-2 px-4 text-black transition-all duration-300 hover:rounded-full w-40 text-center hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none focus:ring   hover:shadow-lg hover:text-white transform hover:scale-105 hover:rotate-1"
+                className="block py-2 px-4 text-black transition-all duration-300 rounded-full w-40 text-center hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none focus:ring   hover:shadow-lg hover:text-white transform hover:scale-105 hover:rotate-1"
 
                 onClick={closeMenu}
               >
