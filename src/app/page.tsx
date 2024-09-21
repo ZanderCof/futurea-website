@@ -30,7 +30,7 @@ export default function ScrollTitle() {
     <>
 <div className="video-container w-[80%] h-[50vh] mx-auto my-5">
   <video
-    className="w-full h-full object-cover"
+    className="w-full h-full object-cover rounded-full"
     src="/Video/hero_video_loop.mp4"
     autoPlay
     muted
