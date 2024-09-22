@@ -7,7 +7,7 @@ const Project = () => {
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold text-gray-800 mb-4">
-            Cosa Offriamo
+            Prodotti targati Futurea
           </h1>
           <p className="text-lg text-gray-600">
             Scopri i nostri servizi su misura per il tuo business e inizia a crescere con noi.

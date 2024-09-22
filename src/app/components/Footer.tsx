@@ -1,18 +1,27 @@
 import React from "react";
 
 export default function Footer() {
+    const navItems = [
+        { name: "Chi Siamo", link: "/about" },
+        { name: "Servizi", link: "/service" },
+        { name: "Prodotti", link: "/example" },
+        { name: "FAQ", link: "/FAQ" },
+        { name: "Contatti", link: "/contatti" },
+        { name: "Politiche sulla Privacy", link: "/privacy" }
+    ];
+
     return (
         <footer className="bg-white shadow ">
             <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <a href="#" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <a href="/" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                         <img src="/Image/Logo_no_bg.png" className="h-8" alt="Futurea Logo" />
                         <span className="self-center text-2xl font-semibold whitespace-nowrap">Futurea</span>
                     </a>
                     <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
-                        {["Chi Siamo", "Servizi", "Blog", "Contatti", "Politiche sulla Privacy"].map((item, index) => (
+                        {navItems.map((item, index) => (
                             <li key={index}>
-                                <a href="#" className="hover:underline me-4 md:me-6">{item}</a>
+                                <a href={item.link} className="hover:underline me-4 md:me-6">{item.name}</a>
                             </li>
                         ))}
                     </ul>
