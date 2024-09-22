@@ -1,111 +1,126 @@
-"use client";
+'use client'
 
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState } from 'react'
+import { Dialog, DialogPanel } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+
+const navigation = [
+  { name: 'Chi Siamo', href: '/about' },
+  { name: 'Prodotti', href: '/example' },
+  { name: 'Servizi', href: '/service' },
+  { name: 'Demo', href: '#', disabled: true }, // Aggiunto il flag disabled
+]
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [lastScrollTop, setLastScrollTop] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [tooltipVisible, setTooltipVisible] = useState(false)
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const handleDemoHover = () => {
+    setTooltipVisible(true);
   };
 
-  const closeMenu = () => {
-    setIsOpen(false);
+  const handleDemoLeave = () => {
+    setTooltipVisible(false);
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScrollTop > lastScrollTop) {
-        // Scrolling down
-        setIsVisible(false);
-      } else {
-        // Scrolling up
-        setIsVisible(true);
-      }
-      setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop); // For Mobile or negative scrolling
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollTop]);
 
   return (
-    <nav className={`navbar bg-transparent sticky top-0 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-      <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between p-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center space-x-3">
+    <header className="absolute inset-x-0 top-0 z-50">
+      <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
+        <div className="flex lg:flex-1">
+        <a href="/" className="-m-1.5 p-1.5 flex items-center">
           <img
-            className="h-10 transition-transform duration-300 hover:scale-105"
-            src="/image/Logo_no_bg.png"
-            alt="Futurea Logo"
+            alt="Company Logo"
+            src="/Image/Logo_no_bg.png"
+            className="h-8 w-auto"
           />
-          <span className="text-3xl font-bold text-black">Futurea</span>
-        </Link>
+          <span className="text-gray-900 ml-2">Futurea</span> {/* Aggiunto ml-2 per spazio */}
+        </a>
 
-        {/* Mobile menu button */}
-        <button
-          type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-black rounded-lg md:hidden hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-black transition duration-300"
-          onClick={toggleMenu}
-        >
-          <span className="sr-only">Apri menu</span>
-          <svg
-            className="w-6 h-6"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </button>
-
-        {/* Menu links */}
-        <div
-          className={`${isOpen ? 'block' : 'hidden'} w-full md:flex md:w-auto md:space-x-8`}
-        >
-          <ul className="flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 mt-4 md:mt-0">
-            <li>
-              <Link
-                href="/about"
-                className="block py-2 px-4 text-black transition-all duration-300 rounded-full w-40 text-center hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none    hover:shadow-lg hover:text-white transform hover:scale-105 hover:rotate-1"
-                onClick={closeMenu}
-              >
-                Chi Siamo
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/service"
-                className="block py-2 px-4 text-black transition-all duration-300 rounded-full w-40 text-center hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none    hover:shadow-lg hover:text-white transform hover:scale-105 hover:rotate-1"
-                onClick={closeMenu}
-              >
-                Servizi
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/example"
-                className="block py-2 px-4 text-black transition-all duration-300 rounded-full w-40 text-center hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none    hover:shadow-lg hover:text-white transform hover:scale-105 hover:rotate-1"
-
-                onClick={closeMenu}
-              >
-                Demo
-              </Link>
-            </li>
-          </ul>
         </div>
-      </div>
-    </nav>
-  );
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(true)}
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+          >
+            <span className="sr-only">Apri menu</span>
+            <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+          </button>
+        </div>
+        <div className="hidden lg:flex lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name} className="relative">
+              <a
+                href={item.disabled ? undefined : item.href}
+                onMouseEnter={item.disabled ? handleDemoHover : undefined}
+                onMouseLeave={item.disabled ? handleDemoLeave : undefined}
+                className={`rounded-full text-sm font-semibold leading-6 text-gray-900 transition duration-300 hover:bg-yellow-400 px-4 py-2 ${item.disabled ? 'cursor-not-allowed opacity-50' : ''}`}
+              >
+                {item.name}
+              </a>
+              {item.disabled && tooltipVisible && (
+                <div className="absolute z-10 mt-1 bg-yellow-700 text-white text-xs rounded-md p-2">
+                  In arrivo
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            Log in <span aria-hidden="true">&rarr;</span>
+          </a> */}
+        </div>
+      </nav>
+
+      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+        <div className="fixed inset-0 z-50" />
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="flex items-center justify-between">
+          <a href="/" className="-m-1.5 p-1.5 flex items-center">
+            <img
+              alt="Company Logo"
+              src="/Image/Logo_no_bg.png"
+              className="h-8 w-auto"
+            />
+            <span className="text-gray-900 ml-2">Futurea</span> {/* Aggiunto ml-2 per spazio */}
+          </a>
+
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(false)}
+              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+            </button>
+          </div>
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-500/10 ">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.disabled ? undefined : item.href}
+                    className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-yellow-50 ${item.disabled ? 'cursor-not-allowed opacity-50' : ''}`}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+              <div className="py-6">
+                {/* <a
+                  href="#"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Log in
+                </a> */}
+              </div>
+            </div>
+          </div>
+        </DialogPanel>
+      </Dialog>
+    </header>
+  )
 }

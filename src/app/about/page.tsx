@@ -25,7 +25,7 @@ const AboutPage = () => {
             <span className="font-bold">Futurea</span> è una startup fondata dalla passione di un team di giovani sviluppatori, dedicata a trasformare la visione digitale delle piccole e medie imprese. Il nostro obiettivo è fornire soluzioni digitali professionali e strutturate, accessibili anche con budget limitati. Vogliamo semplificare e potenziare il tuo business con strumenti su misura, consentendo a ogni azienda di prosperare nel mondo digitale.
           </p>
           <p className="text-lg leading-relaxed text-gray-700">
-            Ci impegniamo a garantire che le tue esigenze siano soddisfatte con creatività e competenza, supportandoti nel raggiungimento dei tuoi obiettivi aziendali. Con Futurea, la tua crescita è la nostra priorità.
+          Crediamo che ogni azienda meriti strumenti efficaci per crescere nel mondo digitale. Con Futurea, non solo ottimizziamo il tuo business, ma ci assicuriamo anche che tu possa raggiungere i tuoi obiettivi con creatività e competenza. La tua crescita è la nostra missione!
           </p>
         </div>
         
