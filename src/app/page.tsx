@@ -8,7 +8,7 @@ export default function Example() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowText(true);
-    }, 1000); // Mostra il testo dopo 1 secondo
+    }, 500); // Mostra il testo dopo 1 secondo
 
     return () => clearTimeout(timer);
   }, []);

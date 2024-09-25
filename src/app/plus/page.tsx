@@ -79,7 +79,7 @@ export default function Pricing() {
           </div>
 
                     {/* Card per l'Accesso Completo */}
-                    <div className="mx-auto max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:flex lg:max-w-none">
+                    <div className="mx-full max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:flex lg:max-w-none">
             <div className="p-8 sm:p-10 lg:flex-auto">
               
               <h3 className="text-2xl font-bold tracking-tight text-gray-900">Futurea Gestionale </h3>
@@ -123,7 +123,7 @@ export default function Pricing() {
           </div>
 
           {/* Card per il Servizio Base */}
-          <div className="mx-auto max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:flex lg:max-w-none">
+          <div className="mx-full max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:flex lg:max-w-none">
             <div className="p-8 sm:p-10 lg:flex-auto">
               
               <h3 className="text-2xl font-bold tracking-tight text-gray-900">Servizio Base</h3>
