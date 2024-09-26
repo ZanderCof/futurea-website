@@ -8,7 +8,7 @@ const navigation = [
   { name: 'Chi Siamo', href: '/about' },
   { name: 'Prodotti', href: '/example' },
   { name: 'Servizi', href: '/service' },
-  { name: 'Plus +', href: '/plus' },
+  { name: 'Plus +', href: '/plus', disabled: true  },
   { name: 'Demo', href: '#', disabled: true }, // Aggiunto il flag disabled
 ]
 

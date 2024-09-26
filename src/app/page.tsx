@@ -6,6 +6,8 @@ export default function Example() {
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {
+    console.log("prova");
+    
     const timer = setTimeout(() => {
       setShowText(true);
     }, 500); // Mostra il testo dopo 1 secondo
