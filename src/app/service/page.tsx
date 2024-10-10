@@ -20,8 +20,8 @@ const products = [
     description:
       "Trasforma la tua idea in realtà con un sito web personalizzato che rispecchia l'identità del tuo brand. Ti guidiamo in ogni fase del processo.",
     buttonText: "Scopri di più",
-    priceBase: "€499",
-    pricePlus: "€799",
+    priceBase: "€299",
+    pricePlus: "€399",
     buttonColor: "bg-yellow-500 hover:bg-yellow-600",
   },
   {
@@ -31,7 +31,7 @@ const products = [
       "Offri ai tuoi clienti un'esperienza unica con un menu digitale facile da usare. Modifica i piatti in tempo reale e gestisci le ordinazioni senza stress.",
     buttonText: "Scopri di più",
     priceBase: "€199",
-    pricePlus: "€299",
+    pricePlus: "€19/Mese",
     buttonColor: "bg-yellow-500 hover:bg-yellow-600",
   },
   {
@@ -54,21 +54,21 @@ const Service = () => {
     image: string;
     priceBase: string;
     pricePlus: string;
-  } | null>(null); // Inizializza come null
+  } | null>(null);
 
   const openModal = (product: { title: string; description: string; image: string; priceBase: string; pricePlus: string }) => {
-    setModalContent(product); // Imposta il contenuto della modale
+    setModalContent(product);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setModalContent(null); // Resetta il contenuto della modale
+    setModalContent(null);
   };
 
   return (
     <div className="py-16">
-      <div className="bg-white py-12">
+      <div className="bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-extrabold text-gray-800 mb-4">
@@ -83,9 +83,9 @@ const Service = () => {
             {products.map((product, index) => (
               <div
                 key={index}
-                className="bg-white border rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                className="bg-white border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
               >
-                <div className="overflow-hidden rounded-t-lg">
+                <div className="relative overflow-hidden rounded-t-lg">
                   <Image
                     src={product.image}
                     alt={product.title}
@@ -93,19 +93,19 @@ const Service = () => {
                     height={300}
                     className="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-300"
                   />
+
                 </div>
                 <div className="p-6 text-center">
                   <h3 className="text-2xl font-semibold text-gray-800 mb-3">
                     {product.title}
                   </h3>
-                  {/* Mostra una descrizione tronca nella card */}
                   <p className="text-gray-600 mb-6">
                     {truncateText(product.description, 100)}
                   </p>
 
                   <button
                     onClick={() => openModal({ ...product })}
-                    className="inline-flex items-center px-5 py-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg font-medium transition-colors duration-300"
+                    className={`${product.buttonColor} inline-flex items-center px-5 py-3 text-white rounded-lg font-medium transition-colors duration-300`}
                     aria-label={product.buttonText}
                   >
                     {product.buttonText}
@@ -154,13 +154,12 @@ const Service = () => {
                 />
                 <div className="p-6">
                   <h2 className="text-2xl font-bold">{modalContent.title}</h2>
-                  {/* Mostra la descrizione completa nella modale */}
                   <p className="mt-4 text-gray-600">{modalContent.description}</p>
 
                   {/* Sezione prezzi nella modale */}
                   <div className="flex justify-center space-x-4 mb-6">
                     {/* Prezzo base */}
-                    <div className="p-4 rounded-lg border shadow-sm bg-white w-1/2 text-center">
+                    <div className="p-4 rounded-lg border shadow-sm bg-yellow-50 w-1/2 text-center">
                       <span className="block text-lg font-bold text-gray-700">
                         {modalContent.priceBase}
                       </span>
@@ -168,12 +167,11 @@ const Service = () => {
                     </div>
 
                     {/* Prezzo Plus */}
-                    <div className="p-4 rounded-lg border shadow-sm bg-white w-1/2 text-center relative">
+                    <div className="p-4 rounded-lg border shadow-sm bg-yellow-50 w-1/2 text-center relative">
                       <span className="block text-lg font-bold text-gray-700">
                         {modalContent.pricePlus}
                       </span>
                       <span className="block text-sm text-gray-500">Plus</span>
-                      {/* Tag "Plus" */}
                       <span className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">
                         PLUS
                       </span>

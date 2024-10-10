@@ -6,11 +6,9 @@ export default function Example() {
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {
-    console.log("prova");
-    
     const timer = setTimeout(() => {
       setShowText(true);
-    }, 500); // Mostra il testo dopo 1 secondo
+    }, 500); // Mostra il testo dopo 0.5 secondi
 
     return () => clearTimeout(timer);
   }, []);
@@ -21,7 +19,7 @@ export default function Example() {
         {/* Banner */}
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-            A breve annuncio rilascio ufficiale del Futurea.{' '}
+          Inizia il tuo viaggio con noi e sfrutta gli sconti del lancio!.{' '}
             <a href="#" className="font-semibold text-indigo-600">
               <span aria-hidden="true" className="absolute inset-0" />
               Scopri di più <span aria-hidden="true">&rarr;</span>
@@ -42,12 +40,12 @@ export default function Example() {
           />
         </div>
 
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div className="text-center">
-            <h1 className={`text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl transition-opacity duration-700 ${showText ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 relative z-10">
+          <div className="text-center sticky top-0 transform transition-transform duration-700">
+            <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 transition-opacity duration-700 ${showText ? 'opacity-100' : 'opacity-0'} whitespace-nowrap`}>
               Il Futuro a portata di tutti
             </h1>
-            <p className={`mt-6 text-lg leading-8 text-gray-600 transition-opacity duration-700 ${showText ? 'opacity-100' : 'opacity-0'}`}>
+            <p className={`mt-6 text-lg sm:text-xl leading-8 text-gray-600 transition-opacity duration-700 ${showText ? 'opacity-100' : 'opacity-0'}`}>
               Inizia subito a creare con noi soluzioni su misura per la tua attività: dal gestionale al menu digitale.
             </p>
             <div className={`mt-10 flex items-center justify-center gap-x-6 transition-opacity duration-700 ${showText ? 'opacity-100' : 'opacity-0'}`}>

@@ -8,7 +8,7 @@ const navigation = [
   { name: 'Chi Siamo', href: '/about' },
   { name: 'Prodotti', href: '/example' },
   { name: 'Servizi', href: '/service' },
-  { name: 'Plus +', href: '/plus', disabled: true  },
+  { name: 'Plus +', href: '/plus' },
   { name: 'Demo', href: '#', disabled: true }, // Aggiunto il flag disabled
 ]
 
@@ -34,8 +34,11 @@ export default function Navbar() {
             src="/Image/Logo_no_bg.png"
             className="h-8 w-auto"
           />
-          <span className="text-gray-900 ml-2">Futurea</span> {/* Aggiunto ml-2 per spazio */}
+          <span className="text-gray-900 ml-2 text-2xl font-extrabold tracking-tight shadow-md">
+            Futurea
+          </span> 
         </a>
+
 
         </div>
         <div className="flex lg:hidden">

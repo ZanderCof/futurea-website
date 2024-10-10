@@ -1,99 +1,189 @@
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
+import { Dialog } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
-const Project = () => {
+const truncateText = (text: string, maxLength: number) => {
+  if (text.length > maxLength) {
+    return text.slice(0, maxLength) + "...";
+  }
+  return text;
+};
+
+const products = [
+  {
+    image: "/Image/web-card.jpg",
+    title: "Sito Web Su Misura",
+    description:
+      "Trasforma la tua idea in realtà con un sito web personalizzato che rispecchia l'identità del tuo brand. Ti guidiamo in ogni fase del processo.",
+    buttonText: "Scopri di più",
+    priceBase: "€299",
+    pricePlus: "€399",
+    buttonColor: "bg-yellow-500 hover:bg-yellow-600",
+  },
+  {
+    image: "/Image/emenu-card.jpg",
+    title: "E-Menu Interattivo",
+    description:
+      "Offri ai tuoi clienti un'esperienza unica con un menu digitale facile da usare. Modifica i piatti in tempo reale e gestisci le ordinazioni senza stress.",
+    buttonText: "Scopri di più",
+    priceBase: "€199",
+    pricePlus: "€19/Mese",
+    buttonColor: "bg-yellow-500 hover:bg-yellow-600",
+  },
+  {
+    image: "/Image/gestional-card.jpg",
+    title: "Gestionale Avanzato",
+    description:
+      "Ottimizza la gestione della tua azienda con il nostro software intuitivo. Pianifica appuntamenti, gestisci risorse e resta sempre organizzato.",
+    buttonText: "A breve", // Modificato per il placeholder
+    priceBase: "€699",
+    pricePlus: "€999",
+    buttonColor: "bg-gray-400", // Cambiato per indicare "A breve"
+  },
+];
+
+const Service = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState<{
+    title: string;
+    description: string;
+    image: string;
+    priceBase: string;
+    pricePlus: string;
+  } | null>(null);
+
+  const openModal = (product: { title: string; description: string; image: string; priceBase: string; pricePlus: string }) => {
+    setModalContent(product);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalContent(null);
+  };
+
   return (
     <div className="py-16">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold text-gray-800 mb-4">
-            Prodotti targati Futurea
-          </h1>
-          <p className="text-lg text-gray-600">
-            Scopri i nostri servizi su misura per il tuo business e inizia a crescere con noi.
-          </p>
-        </div>
-
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Card 1 */}
-          <div className="bg-white rounded-lg drop-shadow-2xl overflow-hidden transition-transform duration-300 hover:scale-105">
-            <Image
-              src="/Image/web-card.jpg"
-              alt="Sito Web Personalizzato"
-              width={500}
-              height={300}
-              className="w-full h-56 object-cover"
-            />
-            <div className="p-6 text-center">
-              <h2 className="font-bold text-xl mb-2 text-gray-800">Sito Web Statico</h2>
-              <p className="text-gray-600 mb-4">
-                Crea un sito elegante e professionale, ideale come biglietto da visita per la tua attività. Perfetto per attrarre nuovi clienti!
-              </p>
-              <div className="flex justify-center space-x-2">
-                <span className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-blue-800">
-                  #e-commerce
-                </span>
-                <span className="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-green-800">
-                  #booked
-                </span>
-              </div>
-            </div>
+      <div className="bg-white py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-extrabold text-gray-800 mb-4 animate-fade-in">
+              I Nostri Servizi
+            </h1>
+            <p className="text-lg text-gray-600 animate-fade-in">
+              Scopri le soluzioni innovative che offriamo per far crescere il tuo business.
+            </p>
           </div>
 
-          {/* Card 2 */}
-          <div className="bg-white rounded-lg drop-shadow-2xl overflow-hidden transition-transform duration-300 hover:scale-105">
-            <Image
-              src="/Image/web-card.jpg"
-              alt="E-Menu"
-              width={500}
-              height={300}
-              className="w-full h-56 object-cover"
-            />
-            <div className="p-6 text-center">
-              <h2 className="font-bold text-xl mb-2 text-gray-800">E-Menu</h2>
-              <p className="text-gray-600 mb-4">
-                Rivoluziona la tua esperienza di ristorazione con un menu digitale personalizzabile. Facile da usare per i clienti e pratico per il tuo staff!
-              </p>
-              <div className="flex justify-center space-x-2">
-                <span className="inline-block bg-orange-200 rounded-full px-3 py-1 text-sm font-semibold text-orange-800">
-                  #Menu
-                </span>
-                <span className="inline-block bg-purple-200 rounded-full px-3 py-1 text-sm font-semibold text-purple-800">
-                  #Clientela
-                </span>
-              </div>
-            </div>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product, index) => (
+              <div
+                key={index}
+                className="bg-white border rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
+              >
+                <div className="overflow-hidden rounded-t-lg">
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    width={500}
+                    height={300}
+                    className="w-full h-56 object-cover transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-2xl font-semibold text-gray-800 mb-3">
+                    {product.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6">
+                    {truncateText(product.description, 100)}
+                  </p>
 
-          {/* Card 3 */}
-          <div className="bg-white rounded-lg drop-shadow-2xl overflow-hidden transition-transform duration-300 hover:scale-105">
-            <Image
-              src="/Image/web-card.jpg"
-              alt="Gestionale Professionale"
-              width={500}
-              height={300}
-              className="w-full h-56 object-cover"
-            />
-            <div className="p-6 text-center">
-              <h2 className="font-bold text-xl mb-2 text-gray-800">Gestionale Professionale</h2>
-              <p className="text-gray-600 mb-4">
-                Ottimizza la gestione della tua attività con un software professionale su misura, che si adatta perfettamente alle tue necessità.
-              </p>
-              <div className="flex justify-center space-x-2">
-                <span className="inline-block bg-red-200 rounded-full px-3 py-1 text-sm font-semibold text-red-800">
-                  #Gestione
-                </span>
-                <span className="inline-block bg-teal-200 rounded-full px-3 py-1 text-sm font-semibold text-teal-800">
-                  #Ordini
-                </span>
+                  <button
+                    onClick={() => openModal({ ...product })}
+                    className={`inline-flex items-center px-5 py-3 text-white rounded-lg font-medium transition-colors duration-300 ${product.buttonColor}`}
+                    aria-label={product.buttonText}
+                    disabled={product.buttonText === "A breve"} // Disabilita il bottone se "A breve"
+                  >
+                    {product.buttonText}
+                    <svg
+                      className="w-5 h-5 ml-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
+
+      {modalContent && (
+        <Dialog open={isModalOpen} onClose={closeModal} className="relative z-10">
+          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Dialog.Panel className="relative bg-white rounded-lg shadow-xl max-w-lg w-full">
+                <button
+                  type="button"
+                  className="absolute top-4 right-4 text-gray-400 hover:text-gray-500"
+                  onClick={closeModal}
+                >
+                  <XMarkIcon className="w-6 h-6" />
+                </button>
+                <Image
+                  src={modalContent.image}
+                  alt={modalContent.title}
+                  width={500}
+                  height={300}
+                  className="rounded-t-lg object-cover w-full"
+                />
+                <div className="p-6">
+                  <h2 className="text-2xl font-bold">{modalContent.title}</h2>
+                  <p className="mt-4 text-gray-600">{modalContent.description}</p>
+                  <div className="flex justify-center space-x-4 mb-6">
+                    <div className="p-4 rounded-lg border shadow-sm bg-white w-1/2 text-center">
+                      <span className="block text-lg font-bold text-gray-700">
+                        {modalContent.priceBase}
+                      </span>
+                      <span className="block text-sm text-gray-500">Base</span>
+                    </div>
+                    <div className="p-4 rounded-lg border shadow-sm bg-white w-1/2 text-center relative">
+                      <span className="block text-lg font-bold text-gray-700">
+                        {modalContent.pricePlus}
+                      </span>
+                      <span className="block text-sm text-gray-500">Plus</span>
+                      <span className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">
+                        PLUS
+                      </span>
+                    </div>
+                  </div>
+
+                  <button
+                    className="mt-6 w-full bg-red-600 hover:bg-red-800 text-white px-4 py-2 rounded-lg font-medium"
+                    onClick={closeModal}
+                  >
+                    Chiudi
+                  </button>
+                </div>
+              </Dialog.Panel>
+            </div>
+          </div>
+        </Dialog>
+      )}
     </div>
   );
 };
 
-export default Project;
+export default Service;
