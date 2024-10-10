@@ -20,7 +20,6 @@ const products = [
     buttonText: "Scopri di più",
     priceBase: "€299",
     pricePlus: "€399",
-    buttonColor: "bg-yellow-500 hover:bg-yellow-600",
   },
   {
     image: "/Image/emenu-card.jpg",
@@ -30,7 +29,6 @@ const products = [
     buttonText: "Scopri di più",
     priceBase: "€199",
     pricePlus: "€19/Mese",
-    buttonColor: "bg-yellow-500 hover:bg-yellow-600",
   },
   {
     image: "/Image/gestional-card.jpg",
@@ -40,7 +38,6 @@ const products = [
     buttonText: "A breve", // Modificato per il placeholder
     priceBase: "€699",
     pricePlus: "€999",
-    buttonColor: "bg-gray-400", // Cambiato per indicare "A breve"
   },
 ];
 
@@ -70,7 +67,7 @@ const Service = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-extrabold text-gray-800 mb-4 animate-fade-in">
-              I Nostri Servizi
+              I Nostri Prodotti
             </h1>
             <p className="text-lg text-gray-600 animate-fade-in">
               Scopri le soluzioni innovative che offriamo per far crescere il tuo business.
@@ -100,28 +97,7 @@ const Service = () => {
                     {truncateText(product.description, 100)}
                   </p>
 
-                  <button
-                    onClick={() => openModal({ ...product })}
-                    className={`inline-flex items-center px-5 py-3 text-white rounded-lg font-medium transition-colors duration-300 ${product.buttonColor}`}
-                    aria-label={product.buttonText}
-                    disabled={product.buttonText === "A breve"} // Disabilita il bottone se "A breve"
-                  >
-                    {product.buttonText}
-                    <svg
-                      className="w-5 h-5 ml-3"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
-                  </button>
+
                 </div>
               </div>
             ))}
@@ -169,13 +145,6 @@ const Service = () => {
                       </span>
                     </div>
                   </div>
-
-                  <button
-                    className="mt-6 w-full bg-red-600 hover:bg-red-800 text-white px-4 py-2 rounded-lg font-medium"
-                    onClick={closeModal}
-                  >
-                    Chiudi
-                  </button>
                 </div>
               </Dialog.Panel>
             </div>

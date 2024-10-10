@@ -39,17 +39,17 @@ export default function Banner() {
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <p className="text-sm leading-6 text-gray-900">
-            <strong className="font-semibold">Lasciaci un feedback!</strong>
+            <strong className="font-semibold">Benvenuta Futurea!</strong>
             <svg viewBox="0 0 2 2" aria-hidden="true" className="mx-2 inline h-0.5 w-0.5 fill-current">
               <circle r={1} cx={1} cy={1} />
             </svg>
-            Se ti va saremmo curiosi di conoscere la tua esperienza.
+            Futurea è appena nata ed abbiamo deciso di festeggiare con della fantastiche promo.
           </p>
           <a
-            href="#"
+            href="/plus"
             className="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
           >
-            Dicci la tua <span aria-hidden="true">&rarr;</span>
+            Vai al catalogo <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
         <div className="flex flex-1 justify-end">

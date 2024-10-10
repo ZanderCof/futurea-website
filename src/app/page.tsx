@@ -50,13 +50,15 @@ export default function Example() {
             </p>
             <div className={`mt-10 flex items-center justify-center gap-x-6 transition-opacity duration-700 ${showText ? 'opacity-100' : 'opacity-0'}`}>
               <a
-                href="#"
+                href="https://wa.me/393487073803?text=Ciao,%20sono%20interessato%20ai%20vostri%20servizi
+>
+"
                 className="rounded-md bg-yellow-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-800"
               >
                 Contattaci
               </a>
               <a
-                href="#"
+                href="/service"
                 className="rounded-md text-sm font-semibold leading-6 text-gray-900 px-3.5 py-2.5 shadow-sm transition duration-300 ease-in-out hover:bg-yellow-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-800"
               >
                 Servizi <span aria-hidden="true">→</span>

@@ -7,9 +7,18 @@ const plusFeatures = [
   'Canale di chat per assistenza',
 ];
 
-const baseFeatures = [
-  'Accesso alle funzionalità fondamentali',
-  'Gestione semplificata dell’attività',
+const eMenuFeatures = [
+  'QR Code personale per accedere al tuo E-menu',
+  'Suddivisione in categorie',
+  'Accesso diretto ad allergeni e info generiche',
+];
+
+const eMenuPlusFeatures = [
+  'permette di ordinare direttamente da app',
+  'Suddivisione in categorie',
+  'Accesso diretto ad allergeni e info generiche',
+  'Fino a 5 E-Menu creabili' ,
+  'Aggiunta modifica ed eliminazione di articoli o categorie' ,
 ];
 
 const completeFeatures = [
@@ -30,7 +39,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-16 flex flex-col gap-8">
-          {/* Card per il servizio Plus */}
+          {/* Card per il servizio Plus  */}
           <div className="mx-auto max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:flex lg:max-w-none">
             <div className="p-8 sm:p-10 lg:flex-auto">
               <div className="bg-yellow-300 inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-900 mb-4">Miglior Offerta</div>
@@ -76,8 +85,94 @@ export default function Pricing() {
               </div>
             </div>
           </div>
+          {/* Card per il E-Menu Plus */}
+          <div className="mx-auto max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:flex lg:max-w-none">
+            <div className="p-8 sm:p-10 lg:flex-auto">
+              <h3 className="text-2xl font-bold tracking-tight text-gray-900">E-Menu Plus+</h3>
+              <p className="mt-6 text-base leading-7 text-gray-600">
+              Accedi al nostro applicativo avanzato che ti permette di creare, modificare e gestire in totale autonomia il tuo eMenu digitale. Potrai aggiungere, personalizzare o eliminare piatti e categorie con facilità, aggiornando il menu in tempo reale e offrendo ai tuoi clienti un'esperienza moderna e interattiva <br /> 
+              </p>
+              <div className="mt-10 flex items-center gap-x-4">
+                <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">Cosa include</h4>
+                <div className="h-px flex-auto bg-gray-100" />
+              </div>
+              <ul
+                role="list"
+                className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
+              >
+                {eMenuPlusFeatures.map((feature) => (
+                  <li key={feature} className="flex gap-x-3">
+                    <CheckIcon aria-hidden="true" className="h-6 w-5 flex-none text-indigo-600" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+              <div className="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+                <div className="mx-auto max-w-xs px-8">
+                  <p className="text-base font-semibold text-gray-600">Prezzo</p>
+                  <p className="mt-6 flex items-baseline justify-center gap-x-2">
+                    <span className="text-5xl font-bold tracking-tight text-gray-900">€199</span>
+                    <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600 line-through">€299</span>
+                    <span className="text-sm font-semibold leading-6 tracking-wide text-red-600">Promo!</span>
+                  </p>
+                  <a
+                    href="#"
+                    className="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Attiva abbonamento
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+            {/* Card per il E-Menu */}
+            <div className="mx-auto max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:flex lg:max-w-none">
+            <div className="p-8 sm:p-10 lg:flex-auto">
+              <h3 className="text-2xl font-bold tracking-tight text-gray-900">E-menu</h3>
+              <p className="mt-6 text-base leading-7 text-gray-600">
+              Il menu digitale sarà creato da noi sulla base delle tue indicazioni iniziali. Non potrà essere modificato autonomamente, ma rispecchierà la tua attività con precisione. Per eventuali modifiche future, potrai passare a un piano superiore che ti permetterà di gestire e aggiornare il tuo eMenu in completa autonomia <br /> <strong>Disponibile anche in modalita Plus+</strong> 
+              </p>
+              <div className="mt-10 flex items-center gap-x-4">
+                <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">Cosa include</h4>
+                <div className="h-px flex-auto bg-gray-100" />
+              </div>
+              <ul
+                role="list"
+                className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
+              >
+                {eMenuFeatures.map((feature) => (
+                  <li key={feature} className="flex gap-x-3">
+                    <CheckIcon aria-hidden="true" className="h-6 w-5 flex-none text-indigo-600" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+              <div className="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+                <div className="mx-auto max-w-xs px-8">
+                  <p className="text-base font-semibold text-gray-600">Prezzo</p>
+                  <p className="mt-6 flex items-baseline justify-center gap-x-2">
+                    <span className="text-5xl font-bold tracking-tight text-gray-900">€99</span>
+                    <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600 line-through">€129</span>
+                    <span className="text-sm font-semibold leading-6 tracking-wide text-red-600">Promo!</span>
+                  </p>
+                  <a
+                    href="#"
+                    className="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Attiva abbonamento
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          {/* Card per il Servizio di Accesso Completo */}
+
+
+          {/* Card per il Servizio Gestionale */}
           <div className="mx-auto max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:flex lg:max-w-none">
             <div className="p-8 sm:p-10 lg:flex-auto">
               <h3 className="text-2xl font-bold tracking-tight text-gray-900">Futurea Gestionale</h3>
@@ -108,49 +203,6 @@ export default function Pricing() {
                   <p className="mt-6 flex items-baseline justify-center gap-x-2">
                     <span className="text-5xl font-bold tracking-tight text-gray-900">€699</span>
                     <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600 line-through">€999</span>
-                    <span className="text-sm font-semibold leading-6 tracking-wide text-red-600">Promo!</span>
-                  </p>
-                  <a
-                    href="#"
-                    className="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >
-                    Attiva abbonamento
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Card per il Servizio Base */}
-          <div className="mx-auto max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:flex lg:max-w-none">
-            <div className="p-8 sm:p-10 lg:flex-auto">
-              <h3 className="text-2xl font-bold tracking-tight text-gray-900">E-menu</h3>
-              <p className="mt-6 text-base leading-7 text-gray-600">
-                Crezione di un E-Menu per il tuo ristorante o bar. <br /> <strong>Disponibile anche in modalita Plus+</strong> 
-              </p>
-              <div className="mt-10 flex items-center gap-x-4">
-                <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">Cosa include</h4>
-                <div className="h-px flex-auto bg-gray-100" />
-              </div>
-              <ul
-                role="list"
-                className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
-              >
-                {baseFeatures.map((feature) => (
-                  <li key={feature} className="flex gap-x-3">
-                    <CheckIcon aria-hidden="true" className="h-6 w-5 flex-none text-indigo-600" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
-              <div className="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
-                <div className="mx-auto max-w-xs px-8">
-                  <p className="text-base font-semibold text-gray-600">Prezzo</p>
-                  <p className="mt-6 flex items-baseline justify-center gap-x-2">
-                    <span className="text-5xl font-bold tracking-tight text-gray-900">€99</span>
-                    <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600 line-through">€129</span>
                     <span className="text-sm font-semibold leading-6 tracking-wide text-red-600">Promo!</span>
                   </p>
                   <a
