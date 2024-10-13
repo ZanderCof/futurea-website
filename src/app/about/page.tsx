@@ -45,11 +45,11 @@ const AboutPage = () => {
         {/* Image Section */}
         <div className="lg:flex-1 lg:pl-8">
           <Image
-            src="/Image/web-card.jpg" // Sostituisci con il percorso corretto dell'immagine
+            src="/Image/about-chisiamo-image.png" // Sostituisci con il percorso corretto dell'immagine
             alt="Chi Siamo"
             width={500} // Imposta una larghezza adeguata
             height={300} // Imposta un'altezza adeguata
-            className="w-full h-auto rounded-lg shadow-lg object-cover transform transition-transform duration-700 hover:scale-105"
+            className="w-auto h-auto rounded-lg shadow-lg object-cover transform transition-transform duration-700 hover:scale-105"
           />
         </div>
       </div>
