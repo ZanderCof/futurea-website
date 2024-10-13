@@ -67,7 +67,7 @@ const Service = () => {
   };
 
   return (
-    <div className="py-16">
+    <div className="">
       <div className="bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -133,7 +133,7 @@ const Service = () => {
 
       {/* Modale */}
       {modalContent && (
-        <Dialog open={isModalOpen} onClose={closeModal} className="relative z-10">
+        <Dialog open={isModalOpen} onClose={closeModal} className="relative z-50">
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           <div className="fixed inset-0 z-10 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
