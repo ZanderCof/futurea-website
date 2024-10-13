@@ -14,9 +14,8 @@ const AboutPage = () => {
   }, []);
 
   return (
-    <div className="grid justify-items-center bg-yellow-50 py-16">
       <div
-        className={`w-auto h-auto bg-white text-black shadow-2xl rounded-lg p-8 lg:flex lg:items-center lg:space-x-8 transition-opacity duration-700 ${
+        className={`container mx-auto w-auto h-auto bg-white text-black shadow-2xl rounded-lg p-8 lg:flex lg:items-center lg:space-x-8 transition-opacity duration-700 ${
           visible ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -53,7 +52,6 @@ const AboutPage = () => {
           />
         </div>
       </div>
-    </div>
   );
 };
 

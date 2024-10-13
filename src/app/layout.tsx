@@ -27,7 +27,7 @@ export default function RootLayout({
         {/* BANNER */}
         <Banner />
         {/* MAIN CONTENT */}
-        <main className="">
+        <main className="grid justify-items-center bg-yellow-50 py-5">
           {children}
         </main>
 

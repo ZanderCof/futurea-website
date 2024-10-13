@@ -62,49 +62,43 @@ const Service = () => {
   };
 
   return (
-    <div className="py-16">
-      <div className="bg-white py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-extrabold text-gray-800 mb-4 animate-fade-in">
-              I Nostri Prodotti
-            </h1>
-            <p className="text-lg text-gray-600 animate-fade-in">
-              Scopri le soluzioni innovative che offriamo per far crescere il tuo business.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product, index) => (
-              <div
-                key={index}
-                className="bg-white border rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
-              >
-                <div className="overflow-hidden rounded-t-lg">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    width={500}
-                    height={300}
-                    className="w-full h-56 object-cover transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-3">
-                    {product.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6">
-                    {truncateText(product.description, 100)}
-                  </p>
-
-
-                </div>
+    <div className="bg-white py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-800 mb-4 animate-fade-in">
+            I Nostri Prodotti
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 animate-fade-in">
+            Scopri le soluzioni innovative che offriamo per far crescere il tuo business.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-6 lg:gap-8">
+          {products.map((product, index) => (
+            <div
+              key={index}
+              className="bg-white border rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
+            >
+              <div className="overflow-hidden rounded-t-lg">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  width={500}
+                  height={300}
+                  className="w-full h-40 sm:h-40 md:h-48 lg:h-64 object-cover transition-transform duration-300"
+                />
               </div>
-            ))}
-          </div>
+              <div className="p-4 text-center">
+                <h3 className="text-lg sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-800 mb-3">
+                  {product.title}
+                </h3>
+                <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-600 mb-4">
+                  {truncateText(product.description, 100)}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-
       {modalContent && (
         <Dialog open={isModalOpen} onClose={closeModal} className="relative z-10">
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
@@ -121,25 +115,25 @@ const Service = () => {
                 <Image
                   src={modalContent.image}
                   alt={modalContent.title}
-                  width={500}
-                  height={300}
+                  width={300}
+                  height={200}
                   className="rounded-t-lg object-cover w-full"
                 />
                 <div className="p-6">
-                  <h2 className="text-2xl font-bold">{modalContent.title}</h2>
-                  <p className="mt-4 text-gray-600">{modalContent.description}</p>
+                  <h2 className="text-lg sm:text-lg md:text-xl lg:text-2xl font-bold">{modalContent.title}</h2>
+                  <p className="mt-4 text-xs sm:text-sm md:text-base lg:text-lg text-gray-600">{modalContent.description}</p>
                   <div className="flex justify-center space-x-4 mb-6">
                     <div className="p-4 rounded-lg border shadow-sm bg-white w-1/2 text-center">
-                      <span className="block text-lg font-bold text-gray-700">
+                      <span className="block text-base font-bold text-gray-700">
                         {modalContent.priceBase}
                       </span>
-                      <span className="block text-sm text-gray-500">Base</span>
+                      <span className="block text-xs text-gray-500">Base</span>
                     </div>
                     <div className="p-4 rounded-lg border shadow-sm bg-white w-1/2 text-center relative">
-                      <span className="block text-lg font-bold text-gray-700">
+                      <span className="block text-base font-bold text-gray-700">
                         {modalContent.pricePlus}
                       </span>
-                      <span className="block text-sm text-gray-500">Plus</span>
+                      <span className="block text-xs text-gray-500">Plus</span>
                       <span className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">
                         PLUS
                       </span>
@@ -152,6 +146,8 @@ const Service = () => {
         </Dialog>
       )}
     </div>
+
+    
   );
 };
 
