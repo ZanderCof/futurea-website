@@ -4,7 +4,6 @@ export default function Footer() {
     const navItems = [
         { name: "Chi Siamo", link: "/about" },
         { name: "Servizi", link: "/service" },
-        { name: "Prodotti", link: "/example" },
         { name: "FAQ", link: "/FAQ" },
         { name: "Contatti", link: "/contatti" },
         { name: "Politiche sulla Privacy", link: "/privacy" }

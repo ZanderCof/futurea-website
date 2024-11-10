@@ -6,9 +6,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
   { name: 'Chi Siamo', href: '/about' },
-  { name: 'Prodotti', href: '/example' },
   { name: 'Servizi', href: '/service' },
-  { name: 'Marketplace', href: '/plus' },
+  { name: 'Marketplace', href: '/plus', disabled: true },
   { name: 'Demo', href: '#', disabled: true }, // Aggiunto il flag disabled
 ]
 
@@ -25,21 +24,19 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky bg-white  absolute inset-x-0 top-0 z-50">
-      <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
+<header className="sticky bg-white/20 backdrop-blur-md backdrop-filter absolute inset-x-0 top-0 z-50">
+<nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-        <a href="/" className="-m-1.5 p-1.5 flex items-center">
-          <img
-            alt="Company Logo"
-            src="/Image/Logo_no_bg.png"
-            className="h-8 w-auto"
-          />
-          <span className="text-gray-900 ml-2 text-2xl font-extrabold ">
-            Futurea
-          </span> 
-        </a>
-
-
+          <a href="/" className="-m-1.5 p-1.5 flex items-center">
+            <img
+              alt="Company Logo"
+              src="/Image/Logo_no_bg.png"
+              className="h-8 w-auto"
+            />
+            <span className="text-gray-900 ml-2 text-2xl font-extrabold ">
+              Futurea
+            </span>
+          </a>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -51,7 +48,7 @@ export default function Navbar() {
             <Bars3Icon aria-hidden="true" className="h-6 w-6" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-12 lg:justify-center lg:text-center">
           {navigation.map((item) => (
             <div key={item.name} className="relative">
               <a
@@ -62,46 +59,34 @@ export default function Navbar() {
               >
                 {item.name}
               </a>
-              {item.disabled && tooltipVisible && (
-                <div className="absolute z-10 mt-1 bg-yellow-700 text-white text-xs rounded-md p-2">
-                  In arrivo
-                </div>
-              )}
             </div>
           ))}
-        </div>
-
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a> */}
         </div>
       </nav>
 
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-50" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-none sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-          <a href="/" className="-m-1.5 p-1.5 flex items-center">
-            <img
-              alt="Company Logo"
-              src="/Image/Logo_no_bg.png"
-              className="h-8 w-auto"
-            />
-            <span className="text-gray-900 ml-2">Futurea</span> {/* Aggiunto ml-2 per spazio */}
-          </a>
-
+            <a href="/" className="-m-1.5 p-1.5 flex items-center">
+              <img
+                alt="Company Logo"
+                src="/Image/Logo_no_bg.png"
+                className="h-8 w-auto"
+              />
+              <span className="text-gray-900 ml-2">Futurea</span>
+            </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
             >
-              <span className="sr-only">Close menu</span>
+              <span className="sr-only">Chiudi menu</span>
               <XMarkIcon aria-hidden="true" className="h-6 w-6" />
             </button>
           </div>
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10 ">
+            <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
                   <a
@@ -112,14 +97,6 @@ export default function Navbar() {
                     {item.name}
                   </a>
                 ))}
-              </div>
-              <div className="py-6">
-                {/* <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a> */}
               </div>
             </div>
           </div>

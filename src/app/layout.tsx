@@ -6,6 +6,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Banner from "./components/Banner";
+import Cookie from "./cookie/page";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,17 +23,22 @@ export default function RootLayout({
     <html lang="it">
       <body className={`${inter.className} flex flex-col min-h-screen w-full `}>
         
-        {/* NAVBAR */}
-        <Navbar  />
-        {/* BANNER */}
-        <Banner />
+       
+        
         {/* MAIN CONTENT */}
         <main className="">
-          {children}
+          {/* NAVBAR */}
+            <Navbar  />
+          {/* BANNER */}
+            {/* <Banner /> */}
+            {children}
+          {/* COOKIE */}
+            {/* <Cookie  /> */}
+          {/* FOOTER */}
+            <Footer />
         </main>
-
-        {/* FOOTER */}
-        <Footer />
+        
+        
       </body>
     </html>
   );
