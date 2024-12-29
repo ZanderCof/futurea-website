@@ -10,23 +10,10 @@ export default function PrivacyPolicy() {
             
             <h2 className="text-2xl font-semibold mt-6 mb-2">Informazioni Raccolte</h2>
             <p className="mb-4">
-                Raccogliamo diversi tipi di informazioni per vari scopi per fornire e migliorare il nostro servizio.
+                Al momento non raccogliamo nessun tipo di dato. Nel caso in cui, in un futuro questa informazione dovesse cambiare ci impegneremo ad avvisare per tempo i nostri clienti e fornire la lista di tutti i dati raccolti.
             </p>
-            <ul className="list-disc list-inside mb-4">
-                <li>Informazioni personali (nome, email, numero di telefono, ecc.)</li>
-                <li>Dati di utilizzo (indirizzo IP, browser, pagine visitate, tempo speso, ecc.)</li>
-            </ul>
 
-            <h2 className="text-2xl font-semibold mt-6 mb-2">Utilizzo delle Informazioni</h2>
-            <p className="mb-4">
-                Utilizziamo le informazioni raccolte per vari scopi, tra cui:
-            </p>
-            <ul className="list-disc list-inside mb-4">
-                <li>Fornire e mantenere il nostro servizio</li>
-                <li>Notificarti sui cambiamenti del nostro servizio</li>
-                <li>Fornire assistenza clienti</li>
-                <li>Analizzare l'utilizzo del servizio</li>
-            </ul>
+
 
             <h2 className="text-2xl font-semibold mt-6 mb-2">Divulgazione delle Informazioni</h2>
             <p className="mb-4">

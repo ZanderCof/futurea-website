@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from "react"
+import Cookie from "./cookie/page";
 
 const posts = [
   {
@@ -126,6 +127,7 @@ export default function Example() {
         </div>
       </div>
     </div>
+    <Cookie />
     </div>
     
 
