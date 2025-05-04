@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Dialog } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-// Funzione per troncare il testo
 const truncateText = (text: string, maxLength: number) => {
   if (text.length > maxLength) {
     return text.slice(0, maxLength) + "...";
@@ -12,13 +11,11 @@ const truncateText = (text: string, maxLength: number) => {
   return text;
 };
 
-// Prodotti
 const products = [
   {
     image: "/Image/web-card.jpg",
     title: "Sito Web Su Misura",
-    description:
-      "Trasforma la tua idea in realtà con un sito web personalizzato che rispecchia l'identità del tuo brand. Ti guidiamo in ogni fase del processo.",
+    description: "Realizziamo siti web professionali per la tua attività, da semplici pagine promozionali a piattaforme complesse come e-commerce o sistemi di prenotazione.",
     buttonText: "Scopri di più",
     priceBase: "€299",
     pricePlus: "€399",
@@ -27,8 +24,7 @@ const products = [
   {
     image: "/Image/emenu-card.jpg",
     title: "E-Menu Interattivo",
-    description:
-      "Offri ai tuoi clienti un'esperienza unica con un menu digitale facile da usare. Modifica i piatti in tempo reale e gestisci le ordinazioni senza stress.",
+    description: "Crea un menù digitale personalizzato, facile da aggiornare e accessibile da smartphone tramite QR code.",
     buttonText: "Scopri di più",
     priceBase: "€199",
     pricePlus: "€19/Mese",
@@ -37,8 +33,7 @@ const products = [
   {
     image: "/Image/gestional-card.jpg",
     title: "Gestionale Avanzato",
-    description:
-      "Ottimizza la gestione della tua azienda con il nostro software intuitivo. Pianifica appuntamenti, gestisci risorse e resta sempre organizzato.",
+    description: "Gestionali online personalizzati per organizzare al meglio prenotazioni, vendite e molto altro.",
     buttonText: "Scopri di più",
     priceBase: "€699",
     pricePlus: "€999",
@@ -93,7 +88,6 @@ const Service = () => {
                     height={300}
                     className="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-300"
                   />
-
                 </div>
                 <div className="p-6 text-center">
                   <h3 className="text-2xl font-semibold text-gray-800 mb-3">
@@ -131,7 +125,6 @@ const Service = () => {
         </div>
       </div>
 
-      {/* Modale */}
       {modalContent && (
         <Dialog open={isModalOpen} onClose={closeModal} className="relative z-50">
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
@@ -153,8 +146,8 @@ const Service = () => {
                   className="rounded-t-lg object-cover w-full"
                 />
                 <div className="p-6">
-                  <h2 className="text-2xl font-bold">{modalContent.title}</h2>
-                  <p className="mt-4 text-gray-600">{modalContent.description}</p>
+                  <h2 className="text-2xl font-bold mb-4">{modalContent.title}</h2>
+                  <p className="text-gray-600 mb-6">{modalContent.description}</p>
 
                   {/* Sezione prezzi nella modale */}
                   <div className="flex justify-center space-x-4 mb-6">
@@ -177,9 +170,18 @@ const Service = () => {
                       </span>
                     </div> */}
                   </div>
+                  <button
+                    className="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium mb-4"
+                    onClick={() =>
+                      window.open(
+                        "https://wa.me/393487073803?text=Ciao,%20sono%20interessato%20ai%20vostri%20servizi")}
+                  >
+                    
+                    Richiedi più info su WhatsApp
+                  </button>
 
                   <button
-                    className="mt-6 w-full bg-red-600 hover:bg-red-800 text-white px-4 py-2 rounded-lg font-medium"
+                    className="w-full bg-red-600 hover:bg-red-800 text-white px-4 py-2 rounded-lg font-medium"
                     onClick={closeModal}
                   >
                     Chiudi

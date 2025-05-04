@@ -1,28 +1,37 @@
-export default function Cookie(){
-    return(
-            <div id="" className=" p-4 mb-4 text-yellow-800 bg-white" role="alert">
-            <div className="flex items-center">
-                <svg className="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                </svg>
-                <span className="sr-only">Cookie</span>
-                <h3 className="text-lg font-medium">Conferma i cookie</h3>
-            </div>
-            <div className="mt-2 mb-4 text-sm">
-                Per garantire la conformita alle norme Europee e la sicurezza del nostro sito e dei nostri clienti, garantiamo la massima sicurezza e trasparenza.<br/>
-            </div>
-            <div className="flex">
-                <button type="button" className="text-white bg-yellow-600 hover:bg-yellow-900 focus:ring-4 focus:outline-none focus:ring-yellow-200 font-medium rounded-lg text-xs px-3 py-1.5 me-2 text-center inline-flex items-center ">
-                <svg className="me-2 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
-                    <path d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
-                </svg>
-                Accetta
-                </button>
-                <button type="button" className="text-yellow-800 bg-transparent border border-yellow-800 hover:bg-red-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-yellow-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center " data-dismiss-target="#alert-additional-content-1" aria-label="Close">
-                Rifiuta
-                </button>
-            </div>
-            </div>
+"use client";
+import React, { useState } from "react";
 
-    )
-}
+const CookieBanner = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  const acceptCookies = () => {
+    // Logica per gestire il consenso ai cookie
+    setIsVisible(false);
+  };
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="fixed bottom-0 left-0 right-0 bg-yellow-500 text-black p-4 shadow-lg z-50">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
+        <p className="text-center md:text-left text-sm font-medium">
+          Questo sito al momento non utilizza cookie tecnici, ne cookie di terze parti. Per ulteriori informazioni, consulta la nostra{" "}
+          <a
+            href="/privacy"
+            className="underline font-semibold hover:text-gray-800 transition"
+          >
+            Privacy Policy
+          </a>.
+        </p>
+        <button
+          onClick={acceptCookies}
+          className="bg-black text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-800 transition"
+        >
+          Accetta
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default CookieBanner;
