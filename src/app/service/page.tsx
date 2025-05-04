@@ -159,15 +159,15 @@ const Service = () => {
                   {/* Sezione prezzi nella modale */}
                   <div className="flex justify-center space-x-4 mb-6">
                     {/* Prezzo base */}
-                    <div className="p-4 rounded-lg border shadow-sm bg-yellow-50 w-1/2 text-center">
+                    {/* <div className="p-4 rounded-lg border shadow-sm bg-yellow-50 w-1/2 text-center">
                       <span className="block text-lg font-bold text-gray-700">
                         {modalContent.priceBase}
-                      </span>
+                      </span> 
                       <span className="block text-sm text-gray-500">Base</span>
-                    </div>
+                    </div> */}
 
                     {/* Prezzo Plus */}
-                    <div className="p-4 rounded-lg border shadow-sm bg-yellow-50 w-1/2 text-center relative">
+                    {/* <div className="p-4 rounded-lg border shadow-sm bg-yellow-50 w-1/2 text-center relative">
                       <span className="block text-lg font-bold text-gray-700">
                         {modalContent.pricePlus}
                       </span>
@@ -175,7 +175,7 @@ const Service = () => {
                       <span className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">
                         PLUS
                       </span>
-                    </div>
+                    </div> */}
                   </div>
 
                   <button
