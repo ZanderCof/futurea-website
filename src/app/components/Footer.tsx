@@ -5,7 +5,6 @@ export default function Footer() {
         { name: "Chi Siamo", link: "/about" },
         { name: "Servizi", link: "/service" },
         { name: "FAQ", link: "/FAQ" },
-        { name: "Contatti", link: "/contatti" },
         { name: "Politiche sulla Privacy", link: "/privacy" }
     ];
 
