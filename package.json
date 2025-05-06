@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^2.1.8",
     "@heroicons/react": "^2.1.5",
+    "@lottiefiles/dotlottie-react": "^0.13.5",
     "embla-carousel-react": "^8.2.0",
     "lottie-react": "^2.4.1",
     "next": "^14.2.7",

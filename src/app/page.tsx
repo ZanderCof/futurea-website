@@ -1,28 +1,26 @@
 'use client'
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 import Cookie from "./cookie/page";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const posts = [
   {
     id: 1,
     title: "Aumenta la visibilità della tua attività",
     description: "Crea un sito web professionale e ottimizzato per i motori di ricerca, che sappia raccontare al meglio la tua attività e attrarre nuovi clienti ogni giorno.",
-    
   },
   {
     id: 2,
     title: 'Migliora il tuo servizio',
     description:
       'Offri ai tuoi clienti un’esperienza digitale semplice e coinvolgente. Dalla prenotazione online al menu digitale, ogni interazione diventa facile e intuitiva, aumentando la soddisfazione e la fidelizzazione dei clienti.',
-    
   },
   {
     id: 3,
-    title: 'Monitora ogni aspetto della tua attivita',
+    title: 'Monitora ogni aspetto della tua attività',
     description:
       'Gestisci ogni dettaglio della tua attività con strumenti avanzati di monitoraggio e gestione. Dall’inventario alla fatturazione, hai sempre una panoramica chiara e precisa per prendere decisioni informate e strategiche.',
-    
   },
   // More posts...
 ]
@@ -41,16 +39,15 @@ export default function Example() {
   return (
     <div className="bg-white min-h-screen">
       <div className="relative isolate px-6 pt-10 lg:px-8">
-        {/* Banner */}
-        {/* <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-          <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-            Inizia il tuo viaggio con noi e sfrutta gli sconti del lancio!.{' '}
-            <a href="#" className="font-semibold text-indigo-600">
-              <span aria-hidden="true" className="absolute inset-0" />
-              Scopri di più <span aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
-        </div> */}
+        {/* Background Animation */}
+        <div className="absolute inset-0 z-0">
+          <DotLottieReact
+            src="/animations/home_animation.json"  // Inserisci il percorso del tuo file .lottie
+            loop
+            autoplay
+            className="w-full h-full object-cover"
+          />
+        </div>
 
         {/* Decorative background elements */}
         <div
@@ -92,8 +89,6 @@ export default function Example() {
           </div>
         </div>
 
-
-
         {/* Decorative background elements */}
         <div
           aria-hidden="true"
@@ -108,29 +103,28 @@ export default function Example() {
           />
         </div>
       </div>
+
       <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {posts.map((post) => (
-            <article key={post.id} className="flex max-w-xl flex-col items-start justify-between">
-              <div className="group relative">
-                <h3 className="mt-3 text-lg font-semibold leading-6 text-yellow-600 group-hover:text-yellow-900">
-                  <a >
-                    <span className="absolute inset-0" />
-                    {post.title}
-                  </a>
-                </h3>
-                <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.description}</p>
-              </div>
-            </article>
-          ))}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            {posts.map((post) => (
+              <article key={post.id} className="flex max-w-xl flex-col items-start justify-between">
+                <div className="group relative">
+                  <h3 className="mt-3 text-lg font-semibold leading-6 text-yellow-600 group-hover:text-yellow-900">
+                    <a>
+                      <span className="absolute inset-0" />
+                      {post.title}
+                    </a>
+                  </h3>
+                  <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-    <Cookie />
-    </div>
-    
 
-    
-  )
+      <Cookie />
+    </div>
+  );
 }
